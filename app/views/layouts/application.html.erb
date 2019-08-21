@@ -21,9 +21,11 @@
       <%= yield %>
     </main>
     
-    <aside class="sidebar-nav">
-      <%= render 'layouts/sidebar_nav' %>
-    </aside>
+    <% if logged_in? %>
+      <aside class="sidebar-nav">
+        <%= render 'layouts/sidebar_nav' %>
+      </aside>
+    <% end %>
     
     <aside class="sidebar-ads">
       <%= render 'layouts/sidebar_ads' %>

@@ -101,7 +101,44 @@ p {
   line-height: 1.7em;
 }
 
-/* header */
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;;
+  }
+}
+
+nav 
+  ul {
+    padding: 0 15px;
+    li {
+    font-family: helvetica, sans-serif;
+    display: inline-block;
+    list-style: none;
+    a {
+      height: 100%;
+      color: black;
+      text-decoration: none;
+    }
+  }
+}
+
+.sidebar-nav {
+  border-right: solid rgb(233, 233, 233) 1px;
+    ul {
+    padding: 0;
+    display: block;
+    li {
+      display: block;
+      padding: 0;
+      margin: 20px;
+      a {
+        width: 100%;
+        color: black;
+      }
+    }
+  }
+}
 
 #logo {
   float: left;
@@ -112,6 +149,7 @@ p {
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
+  padding-left: 15px;
   font-weight: bold;
   &:hover {
     color: goldenrod;
@@ -119,11 +157,7 @@ p {
   }
 }
 
-
-
 /* forms */
-
-
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
@@ -192,6 +226,10 @@ footer {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+.forgot-password {
+  float: right;
 }
 
 /* Users index */
