@@ -14,9 +14,9 @@ User.create!(name:  "bones",
              activated: true,
              activated_at: Time.zone.now)
 
-99.times do |n|
+5.times do |n|
   name = Faker::Name.name
-  email = "example-#{n}@ourmovielist.com"
+  email = "example-#{n}@hivexportal.com"
   password = "password"
   User.create!(name: name,
                 email: email,

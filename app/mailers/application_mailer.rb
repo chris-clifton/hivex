@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'noreply@ourmovielist.com'
+  default from: 'noreply@HIVEX Portal.com'
   layout 'mailer'
 end

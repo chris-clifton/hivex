@@ -5,9 +5,9 @@ class UserMailerTest < ActionMailer::TestCase
     user = users(:bones)
     user.activation_token = User.new_token
     mail = UserMailer.account_activation(user)
-    assert_equal "Our Movie List: Account Activation", mail.subject
+    assert_equal "HIVEX Portal: Account Activation", mail.subject
     assert_equal [user.email], mail.to
-    assert_equal ["noreply@ourmovielist.com"], mail.from
+    assert_equal ["noreply@HIVEX Portal.com"], mail.from
     assert_match user.name,               mail.body.encoded
     assert_match user.activation_token,   mail.body.encoded
     assert_match CGI.escape(user.email),  mail.body.encoded
@@ -17,9 +17,9 @@ class UserMailerTest < ActionMailer::TestCase
     user = users(:bones)
     user.reset_token = User.new_token
     mail = UserMailer.password_reset(user)
-    assert_equal "Our Movie List: Password Reset", mail.subject
+    assert_equal "HIVEX Portal: Password Reset", mail.subject
     assert_equal [user.email], mail.to
-    assert_equal ["noreply@ourmovielist.com"], mail.from
+    assert_equal ["noreply@HIVEX Portal.com"], mail.from
     assert_match user.reset_token,       mail.body.encoded
     assert_match CGI.escape(user.email), mail.body.encoded
   end

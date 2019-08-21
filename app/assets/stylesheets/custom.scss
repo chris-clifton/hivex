@@ -1,34 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* Motorcycle Color Palette */
-// $yellow: #feda6a;
-// light: #d4d4dc;
-// $gray: #393f4d;
-// $slate: #1d1e22;
-
-/* Dashboard Color Palette */
-$light-gray: #f8f9fa;
-$med-gray: #434857;
-$dark-gray: #252830;
-$darkest-gray: #1e2127;
-$black: #181a1a;
-
-$purple: #9F86FF;
-$light-purple: #bcaaff;
-
-$green: #37c98d;
-$light-green: #5fd9b0;
-
-$red: #e64659;
-$light-red: #ed7e8b;
-
-$yellow: #e4d836;
-$light-yellow: #ece471;
-
-$blue: #31a8dd;
-
-
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
@@ -37,22 +9,50 @@ $blue: #31a8dd;
 
 /* universal */
 
+header        { grid-area: header; }
+footer        { grid-area: footer; }
+main          { grid-area: main; }
+.sidebar-nav  { grid-area: navigation; }
+.sidebar-ads  { grid-area: ads; }
+
+body {
+  display: grid;
+  grid-template-areas:  "header header header"
+                        "navigation main ads"
+                        "footer footer footer";
+  grid-template-columns: 150px 1fr 150px;
+  grid-template-rows: 50px
+                      1fr
+                      50px;
+  min-height: 100vh;
+  min-width: 100vw;
+  font-family: helvetica, sans-serif;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    grid-template-areas:  "header"
+                          "navigation"
+                          "main"
+                          "ads"
+                          "footer";
+    grid-template-columns: 100%;
+    grid-template-rows:   50px
+                          50px
+                          1fr
+                          50px
+                          50px;
+  }   
+}
+
+
 html {
   background-color: white;
   color: black;
 }
 
-body {
-  background-color: white;
-  padding-top: 60px;
-}
-
-.jumbotron {
-  background-color: $med-gray;
-  color: $light-gray;
-  h2 {
-    color: $light-gray;
-  }
+main {
+  padding: 25px;
 }
 
 section {
@@ -78,7 +78,6 @@ textarea {
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
-  color: $darkest-gray;
   line-height: 1;
 }
 
@@ -98,7 +97,6 @@ h2 {
 }
 
 p {
-  color: $darkest-gray;
   font-size: 1.1em;
   line-height: 1.7em;
 }
@@ -109,26 +107,23 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: $light-gray;
+  color: white;
+  text-decoration: none;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: $blue;
+    color: goldenrod;
     text-decoration: none;
   }
 }
 
-.navbar {
-  background-color: $black;
-}
+
 
 /* forms */
 
-form {
-  color: $darkest-gray;
-}
+
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
@@ -143,9 +138,7 @@ input {
 }
 
 #error_explanation {
-  color: $red;
   ul {
-    color: $red;
     margin: 0 0 30px 0;
   }
 }
@@ -153,6 +146,8 @@ input {
 .field_with_errors {
   @extend .has-error;
   .form-control {
+    color: $state-danger-text;
+  }.form-control {
     color: $state-danger-text;
   }
 }
@@ -175,19 +170,9 @@ input {
 /* footer */
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: $darkest-gray;
+  background: white;
   a {
-    color: $darkest-gray;
-    &:hover {
-      color: $blue;
-      text-decoration: none;
-    }
-  }
-  small {
-    float: left;
+    color: black;
   }
   ul {
     float: right;
@@ -217,6 +202,5 @@ footer {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $med-gray;
   }
 }
